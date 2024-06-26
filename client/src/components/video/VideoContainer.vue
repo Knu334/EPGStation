@@ -230,7 +230,7 @@ export default class VideoContainer extends Vue {
     public isHideCursor: boolean = false;
     public currentTime: number = 0; // 動画再生位置 (秒)
     public duration: number = 0; // 動画終了長さ (秒)
-    public volume: number = 1.0;
+    public volume: number = 0.1;
     public speed: number = 1.0;
     public isLoading: boolean = true;
     public isPause: boolean = true; // play ボタン用
@@ -505,6 +505,9 @@ export default class VideoContainer extends Vue {
         this.updateTimeStr();
 
         this.updateSubtitleState();
+
+        // 音量の適用
+        this.changeVolume(this.volume);
     }
 
     // 終了
